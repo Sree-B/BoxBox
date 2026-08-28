@@ -20,3 +20,4 @@ print(ham_laps[['LapNumber', 'LapTime', 'Compound', 'TyreLife']])
 ant_laps = laps.pick_driver('ANT')
 print('----------ANTONELLI----------')
 print(ant_laps[['LapNumber', 'LapTime', 'Compound', 'TyreLife']])
+

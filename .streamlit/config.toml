@@ -1,0 +1,20 @@
+[theme]
+base = "dark"
+primaryColor = "#e10600"
+backgroundColor = "#15151e"
+secondaryBackgroundColor = "#1f1f2b"
+textColor = "#ffffff"
+font = "sans-serif"
+
+redColor = "#ff2b2b"
+greenColor = "#09ab3b"
+
+borderColor = "#2a2a3a"
+baseRadius = "0.5rem"
+buttonRadius = "0.5rem"
+
+[client]
+showErrorDetails = "full"
+
+[server]
+runOnSave = true
