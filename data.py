@@ -64,4 +64,11 @@ if __name__ == "__main__":
     print(check[['Position', 'Driver', 'PersonalDelta', 'Interval', 'PittedThisLap']])
 
     print(results)
+
+def load_lap_data(session):
+    laps = session.laps
+    laps['PittedThisLap'] = laps['PitInTime'].notna()
+    cols = ['Driver', 'LapNumber', 'LapTime', 'Compound', 'TyreLife', 'Position',
+            'Time', 'PitInTime', 'PittedThisLap', 'TrackStatus']
     
+    return laps[cols].copy()
