@@ -46,19 +46,23 @@ def add_interval(race_data):
     interval_race_data = pd.DataFrame(records)
     return race_data.merge(interval_race_data, on=['Driver', 'LapNumber'])
 
-
 def get_race_data(year, circuit_name, race_type):
-    session = load_session(year, circuit_name, race_type)
-    session.load()
+    laps_df = pd.read_csv(f'data/{circuit_name}_{year}_laps.csv')
+    results_df = pd.read_csv(f'data/{circuit_name}_{year}_results.csv')
+    return laps_df, results_df
 
-    race_data = load_lap_data(session)
-    race_data = add_personal_delta(race_data)
-    race_data = add_interval(race_data)
-    race_data.to_csv(f'{circuit_name}_{year}_laps.csv', index=False)
 
-    results = load_race_results(session)
-    results.to_csv(f'{circuit_name}_{year}_results.csv', index=False)
-    return race_data, results
+#def get_race_data(year, circuit_name, race_type):
+#    session = load_session(year, circuit_name, race_type)
+#
+#    race_data = load_lap_data(session)
+#    race_data = add_personal_delta(race_data)
+#    race_data = add_interval(race_data)
+#    race_data.to_csv(f'{circuit_name}_{year}_laps.csv', index=False)
+
+#    results = load_race_results(session)
+#    results.to_csv(f'{circuit_name}_{year}_results.csv', index=False)
+#    return race_data, results
 
 if __name__ == "__main__":
     race_data, results = get_race_data(2026, 'Barcelona', 'R')
