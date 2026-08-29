@@ -3,6 +3,13 @@ import pandas as pd
 from data import get_race_data
 from style import style_compound, style_delta, find_battles, get_track_status_label
 
+import requests
+try:
+    r = requests.get('https://livetiming.formula1.com', timeout=5)
+    st.write(f"F1 livetiming status: {r.status_code}")
+except Exception as e:
+    st.write(f"F1 livetiming failed: {e}")
+
 st.set_page_config(layout="wide")
 st.title("BoxBox")
 

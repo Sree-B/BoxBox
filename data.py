@@ -49,6 +49,7 @@ def add_interval(race_data):
 
 def get_race_data(year, circuit_name, race_type):
     session = load_session(year, circuit_name, race_type)
+    session.load()
 
     race_data = load_lap_data(session)
     race_data = add_personal_delta(race_data)
